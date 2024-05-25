@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card mx-auto" style="width: 80rem;">
+    <!-- <img src="..." class="card-img-top" alt="...">-->
+    <div class="card-body">
+        <h5 class="card-title mb-3">Item Issue History</h5>
+        <table class="table table-boardered">
+            <thread>
+                <tr>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Issued By</th>
+                    <th scope="col">Issued To</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Date Issued</th>
+                    <th scope="col">Return Date</th>
+                </tr>
+            </thread>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{item.item}}</td>
+                    <td>{{item.issued_by}}</td>
+                    <td>{{item.issued_to}}</td>
+                    <td>{{item.department}}</td>
+                    <td>{{item.issued_date}}</td>
+                    <td>{{item.return_date}}</td>                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

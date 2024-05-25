@@ -1,0 +1,66 @@
+{% block content %}
+
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Asset Management - login</title>
+</head>
+<body>
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-1g-7 text align-items-center text-lg-start">
+                <h1 class="display-4 fw-bold 1h-1 mb-3">Welcome to Asset Management</h1>
+                <p class="col-lg-10 fs-4">
+                    This app makes it easy for you to manage and track assets!
+                    Never get confused when issuing and accepting back assets from students.
+                </p>
+            </div>
+            <div class="col-md-10 mx-auto col-lg-5">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}}" roles="alert">
+                    <b>{{message}}</b>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <form class="px-4 p-md-5 border rounded-3 bg-light" method="POST">
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="username" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Username</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="rember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+                    <hr class="my-4">
+                    <!-- <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small> -->
+                    <!-- <small class="text-muted">Don't have an account? <a href="#">Sign Up</a></small> -->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFY1zcLA8N1+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIazVXM"
+            crossorigin="anonymous"></script>
+</body>
+</html>
+{% endblock content %}

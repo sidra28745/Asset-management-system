@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mx-auto" style="width: 40rem;">            
+            <div class="card-body">
+                <h5 class="card-title mb-3">Return an Item</h5>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Item Name and code</label>
+                        {% render_field form.item class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Returned date</label>
+                        {% render_field form.returned_date class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Returned By</label>
+                        {% render_field form.returned_by class="form-control" %}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

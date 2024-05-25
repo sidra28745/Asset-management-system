@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mx-auto" style="width: 40rem;">
+            <!-- <img src="..." class="card-img-top" alt="...">-->
+            <div class="card-body">
+                <h5 class="card-title mb-3">Update this Item</h5>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Item Name</label>
+                        {% render_field form.name class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Code</label>
+                        {% render_field form.code class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Description</label>
+                        {% render_field form.description class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">created By</label>
+                        {% render_field form.created_by class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Date Created</label>
+                        {% render_field form.date_created class="form-control" %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

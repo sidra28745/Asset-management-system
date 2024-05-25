@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card mx-auto" style="width: 80rem;">
+    <!-- <img src="..." class="card-img-top" alt="...">-->
+    <div class="card-body">
+        <h5 class="card-title mb-3">Returned Item History</h5>
+        <table class="table table-boardered">
+            <thread>
+                <tr>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Returned Date</th>
+                    <th scope="col">Returned By</th>       
+                </tr>
+            </thread>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{item.item}}</td>
+                    <td>{{item.returned_date}}</td>
+                    <td>{{item.returned_by}}</td>                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}
